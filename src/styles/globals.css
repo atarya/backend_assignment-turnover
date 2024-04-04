@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 .testBox {
-    height: 200px;
-    width: 350px;
+    height: 300px;
+    width: 400px;
     background-color: gray;
     padding: 50px;
     margin: 50px;
@@ -13,6 +13,7 @@
 .testButton {
     background-color: #4CAF50;
     color: white;
+    margin: 20px;
     padding: 10px;
     border: black;
     cursor: pointer;
@@ -26,4 +27,12 @@
     font-size: 30px;
     text-align: center;
     padding: 25px;
+}
+
+.altButton {
+    background-color: #4c6faf;
+    color: white;
+    padding: 10px;;
+    border: black;
+    cursor: pointer;
 }
