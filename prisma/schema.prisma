@@ -10,35 +10,39 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
+//Added timestamps for creationg and updation in all tables
+
 model User {
-    id              Int         @id @default(autoincrement()) @unique
+    id              Int         @id @default(autoincrement()) @unique //Primary Field
     name            String
     email           String      @unique
     password        String
     emailVerified   Boolean     @default(false)
-    interests       Interest[]
+    interests       Interest[]  //Creating relation between categories and users
     createdAt       DateTime    @default(now())
     updatedAt       DateTime    @updatedAt
 
-    @@index([email])
+    @@index([email]) //Indexing email as it is unique, and searchable
 }
 
 model Category {
-    id              Int         @id @default(autoincrement()) @unique
-    name            String      @unique
+    id              Int         @id @default(autoincrement()) @unique //Primary Field
+    name            String      @unique //Avoiding duplicate entries for categories
     users           Interest[]
     createdAt       DateTime    @default(now())
     updatedAt       DateTime    @updatedAt
 
-    @@index([name])
+    @@index([name]) //Indexing category name to improve performance
 }
+
+//This is a Join table for the many-to-many relationship between `User` and `Category`
 
 model Interest {
   userId            Int
   categoryId        Int
-  user              User        @relation(fields: [userId], references: [id])
-  category          Category    @relation(fields: [categoryId], references: [id])
+  user              User        @relation(fields: [userId], references: [id]) //Relates to the User model
+  category          Category    @relation(fields: [categoryId], references: [id]) //Relates to the Category model
 
-  @@id([userId, categoryId])
-  @@unique([userId, categoryId])
+  @@id([userId, categoryId]) //This is a composite primary key (User + Category)
+  @@unique([userId, categoryId]) //Avoiding duplicate category selection for users
 }
