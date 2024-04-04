@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.testBox {
+    height: 200px;
+    width: 350px;
+    background-color: gray;
+    padding: 50px;
+    margin: 50px;
+}
+
+.testButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: black;
+    cursor: pointer;
+}
+
+.testButton:hover {
+    background-color: #45a049;
+}
+
+.testResult {
+    font-size: 30px;
+    text-align: center;
+    padding: 25px;
+}
