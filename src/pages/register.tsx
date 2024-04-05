@@ -29,23 +29,23 @@ const CreateAccount = () => {
 
   return (
     <form className='testBox' onSubmit={handleSubmit}>
-      <h1>Create your account</h1><br />
+      <h1 className='pageTitle'>Create your account</h1><br />
 
-      <input
+      <input className='input'
         type="text"
         name="name"
         value={name}
         onChange={handleInputChange}
         placeholder="Name"
       />
-      <input
+      <input className='input'
         type="email"
         name="email"
         value={email}
         onChange={handleInputChange}
         placeholder="Email"
       />
-      <input
+      <input className='input'
         type="password"
         name="password"
         value={password}

@@ -28,9 +28,9 @@ const VerifyEmail = () => {
 
   return (
     <form className="testBox" onSubmit={handleSubmit}>
-      <h1>Verify your email</h1><br />
+      <h1 className='pageTitle' >Verify your email</h1><br />
       <div>Email: {email}</div>
-      <input
+      <input className='input'
         type="text"
         value={code}
         onChange={(e) => setCode(e.target.value)}

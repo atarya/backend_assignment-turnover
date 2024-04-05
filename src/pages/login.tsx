@@ -38,14 +38,14 @@ const Login = () => {
 
   return (
     <form className="testBox" onSubmit={handleSubmit}>
-      <h1>Login</h1><br />
-      <input
+      <h1 className='pageTitle'>Login</h1><br />
+      <input className='input'
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Email"
       />
-      <input
+      <input className='input'
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}

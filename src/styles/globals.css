@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 .testBox {
-    height: 300px;
-    width: 400px;
+    height: 600px;
+    width: 600px;
     background-color: gray;
     padding: 50px;
     margin: 50px;
+    position: relative;
 }
 
 .testButton {
@@ -35,4 +36,64 @@
     padding: 10px;;
     border: black;
     cursor: pointer;
+}
+
+.altButton:hover {
+    background-color: #7ba8fb;
+}
+
+.pageTitle {
+    font-size: 30px;
+    text-align: center;
+    padding: 5px;
+    font-weight: bolder;
+    color: bisque;
+}
+
+.input {
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+}
+
+.logoutButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.category-name {
+    margin-right: 20px;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+}
+
+.toggleButton {
+    padding: 5px 10px;
+    background-color: #ccc;
+    color: black;
+    border: none;
+    cursor: pointer;
+}
+
+.toggleButton:hover {
+    background-color: #aaa;
+}
+
+.toggleButton.interested {
+    background-color: green;
+    color: white;
+}
+
+.toggleButton.interested:hover {
+    background-color: red;
 }

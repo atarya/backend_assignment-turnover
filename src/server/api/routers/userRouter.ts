@@ -76,7 +76,7 @@ export const userRouter = createTRPCRouter({
         throw new Error('Verify Email');
       }
 
-      const token = jwt.sign({ userId: user.id, email: user.email }, process.env.JWT_SECRET!, { expiresIn: '2h' });
+      const token = jwt.sign({ userId: user.id, email: user.email, name: user.name }, process.env.JWT_SECRET!, { expiresIn: '2h' });
 
       return { token, message: "Login successful" };
     }),
