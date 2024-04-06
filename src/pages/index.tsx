@@ -2,8 +2,14 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { api } from '../utils/api';
 
+interface Cat {
+  id: number;
+  name: string;
+  interested: boolean;
+}
+
 const Homepage = () => {
-  const [categories, setCategories] = useState<any>(null);
+  const [categories, setCategories] = useState<Cat[] | null>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const router = useRouter();
 
@@ -26,7 +32,7 @@ const Homepage = () => {
     }
   }, [data, error, currentPage, router]);
 
-  const handleInterestToggle = async (categoryId: any, isInterested: any) => {
+  const handleInterestToggle = async (categoryId: number, isInterested: boolean) => {
     const action = isInterested ? 'remove' : 'add';
     try {
       await updateInterestMutation.mutateAsync({
@@ -46,7 +52,9 @@ const Homepage = () => {
   };
 
   const nextPage = () => {
-    if (categories.length === 6) setCurrentPage((prevPage) => prevPage + 1);
+    if (categories && categories.length === 6) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    }    
   };
 
   const prevPage = () => {
@@ -60,7 +68,7 @@ const Homepage = () => {
       <button className='logoutButton altButton' onClick={logout}>Logout</button>
       <h1 className='pageTitle'>Homepage</h1>
       <ul>
-        {categories.map((category: any) => (
+        {categories?.map((category: Cat) => (
       <li key={category.id} className="category-item">
         <button 
           className={`toggleButton ${category.interested ? 'interested' : ''}`} 
