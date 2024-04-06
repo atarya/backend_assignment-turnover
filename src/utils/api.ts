@@ -28,7 +28,7 @@ export const api = createTRPCNext<AppRouter>({
             (opts.direction === "down" && opts.result instanceof Error),
         }),
         httpBatchLink({
-          transformer: superjson,
+          // transformer: superjson,
           url: `${getBaseUrl()}/api/trpc`,
           headers: () => {
             const currentToken = localStorage.token;
@@ -45,7 +45,7 @@ export const api = createTRPCNext<AppRouter>({
    * @see https://trpc.io/docs/nextjs#ssr-boolean-default-false
    */
   ssr: false,
-  transformer: superjson,
+  // transformer: superjson,
 });
 
 /**
